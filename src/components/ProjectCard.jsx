@@ -22,7 +22,9 @@ const ProjectCard = ({ title, description, features, techIcons, sourceCode, medi
         borderRadius: 3,
         px: 3,
         py: 5,
-        boxShadow: 3,
+        boxShadow: 4,
+                  border: "2px solid #38bdf8",
+
       }}
     >
       {/* Text Section */}
@@ -63,7 +65,7 @@ const ProjectCard = ({ title, description, features, techIcons, sourceCode, medi
           maxWidth: 480,
           borderRadius: 2,
           overflow: 'hidden',
-          boxShadow: 2,
+          // boxShadow: 2,
           transition: 'transform 0.3s ease',
           cursor: 'pointer',
           '&:hover': {

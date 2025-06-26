@@ -18,7 +18,7 @@ function App({ toggleTheme }) {
       <Skills />
       <Projects />
       <Contact />
-      <Footer />
+      {/* <Footer /> */}
     </Box>
   );
 }

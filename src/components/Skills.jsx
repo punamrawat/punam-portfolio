@@ -9,7 +9,7 @@ const skills = [
 const Skills = () => {
   return (
     <Container sx={{ py: 10 }} id="skills" data-aos="fade-up">
-      <Typography variant="h4" color="primary" gutterBottom>Skills</Typography>
+      <Typography variant="h4" color="primary" sx={{ fontWeight: 'bold' }} gutterBottom>Skills</Typography>
       <Grid container spacing={3}>
         {skills.map((skill, index) => (
           <Grid item xs={6} sm={4} md={3} key={index}>

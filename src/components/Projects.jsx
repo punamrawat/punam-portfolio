@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -16,7 +16,7 @@ import expressLogo from '../assets/express.png';
 // Videos
 import counterVideo from '../assets/counter-app-video.mp4';
 import todoVideo from '../assets/todo-app-video.mp4';
-// import chatVideo from '../assets/chat-demo.mp4'; // Optional
+import tictactoeVideo from '../assets/tic-tac-toe-video.mp4'; // Optional
 
 const Projects = () => {
   useEffect(() => {
@@ -25,6 +25,8 @@ const Projects = () => {
 
   return (
     <Container id="projects" sx={{ py: 10 }}>
+            <Typography variant="h4" color="primary" sx={{ fontWeight: 'bold' }} gutterBottom>My Projects</Typography>
+
       <ProjectCard
         title="Counter App"
         description="A simple counter application built using <b>React.js</b> and <b>Context API</b>. Demonstrates <b>useReducer</b> and clean state handling."
@@ -63,7 +65,7 @@ const Projects = () => {
         ]}
         techIcons={[reactLogo, nodeLogo, mongoLogo]}
         sourceCode="https://github.com/punamrawat/chat-app"
-        // media={chatVideo}
+        media={tictactoeVideo}
         reverse={false}
       />
     </Container>
