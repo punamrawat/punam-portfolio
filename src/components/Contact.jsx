@@ -1,8 +1,9 @@
 // src/components/Contact.jsx
-import React from 'react';
-import { Box, Typography, TextField, Stack, Paper } from '@mui/material';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
-import CustomButton from './CustomButton';
+import React from "react";
+import { Box, Typography, TextField, Stack, Paper, Link } from "@mui/material";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import CustomButton from "./CustomButton";
+import { bgBG } from "@mui/material/locale";
 
 const Contact = () => {
   return (
@@ -11,47 +12,92 @@ const Contact = () => {
       sx={{
         px: { xs: 3, md: 6 },
         py: { xs: 6, md: 10 },
-        backgroundColor: "background.default",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         justifyContent: "center",
         alignItems: "flex-start",
-        gap: { xs: 2, md: 3 },
+        gap: { xs: 4, md: 6 },
         flexWrap: "wrap",
+        // bgcolor:"red",
       }}
     >
       {/* Left - Contact Info */}
       <Paper
         elevation={3}
         sx={{
+          // mt: 14,
           p: 3,
           width: "100%",
           maxWidth: 320,
-          // backgroundColor: "background.paper",
           borderRadius: 3,
-          boxShadow: 2,
+          backgroundColor: "transparent",
+
+          boxShadow: 4,
+          transition: "0.3s",
+          "&:hover": {
+            boxShadow: 6,
+          },
         }}
       >
         <Typography variant="h5" fontWeight="bold" gutterBottom>
           Connect with me
         </Typography>
 
-        <Stack spacing={2} mt={2}>
+        <Stack spacing={5} mt={2}>
           <Stack direction="row" spacing={1} alignItems="center">
             <FaGithub size={20} />
-            <Typography>Github</Typography>
+            <Link
+              href="https://github.com/punamrawat"
+              underline="none"
+              color="inherit"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ "&:hover": { color: "primary.main" } }}
+            >
+              Github
+            </Link>
           </Stack>
+
           <Stack direction="row" spacing={1} alignItems="center">
             <FaLinkedin size={20} />
-            <Typography>LinkedIn</Typography>
+            <Link
+              href="https://linkedin.com/in/punamrawat"
+              underline="none"
+              color="inherit"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ "&:hover": { color: "primary.main" } }}
+            >
+              LinkedIn
+            </Link>
           </Stack>
+
           <Stack direction="row" spacing={1} alignItems="center">
             <FaEnvelope size={20} />
-            <Typography>punamrawat1323@gmail.com</Typography>
+            <Link
+              href="mailto:punamrawat1323@gmail.com"
+              underline="none"
+              color="inherit"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ "&:hover": { color: "primary.main" } }}
+            >
+              punamrawat1323@gmail.com
+            </Link>
           </Stack>
+
           <Stack direction="row" spacing={1} alignItems="center">
             <FaPhoneAlt size={20} />
-            <Typography>+91 8218366249</Typography>
+            <Link
+              href="tel:+917351495907"
+              underline="none"
+              color="inherit"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ "&:hover": { color: "primary.main" } }}
+            >
+              +91 7351495907
+            </Link>
           </Stack>
         </Stack>
       </Paper>
@@ -66,14 +112,19 @@ const Contact = () => {
           p: 3,
           width: "100%",
           maxWidth: 460,
-          backgroundColor: "none",
+          backgroundColor: "transparent",
           borderRadius: 3,
-          boxShadow: 2,
+          boxShadow: 4,
+          transition: "0.3s",
+          "&:hover": {
+            boxShadow: 6,
+          },
         }}
       >
         <Typography variant="h5" fontWeight="bold" gutterBottom>
           Say Hi 👋
         </Typography>
+
         <TextField
           label="Name"
           name="name"
@@ -81,6 +132,7 @@ const Contact = () => {
           required
           margin="normal"
           variant="outlined"
+          inputProps={{ style: { textTransform: "capitalize" } }}
         />
         <TextField
           label="Email"
@@ -100,9 +152,15 @@ const Contact = () => {
           required
           margin="normal"
           variant="outlined"
+          placeholder="Write your message here..."
         />
 
-        <CustomButton type="submit" label="SEND" sx={{ mt: 2 }} fullWidth />
+        <CustomButton
+          type="submit"
+          label="SEND MESSAGE"
+          sx={{ mt: 2,}}
+          fullWidth
+        />
       </Paper>
     </Box>
   );
