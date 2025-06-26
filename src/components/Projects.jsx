@@ -1,44 +1,71 @@
-// src/components/Projects.jsx
-import React from 'react';
-import { Grid, Card, CardContent, Typography, Button, Container } from '@mui/material';
+import React, { useEffect } from 'react';
+import { Container } from '@mui/material';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const projects = [
-  {
-    title: "Restaurant Management System",
-    tech: "React.js, Node.js, MySQL",
-    github: "https://github.com/yourusername/project1"
-  },
-  {
-    title: "LemaCare – Care Home System",
-    tech: "React.js, Node.js, MongoDB",
-    github: "https://github.com/yourusername/project2"
-  },
-  {
-    title: "Chat Application",
-    tech: "React.js, Context API, Socket.io",
-    github: "https://github.com/yourusername/project3"
-  }
-];
+import ProjectCard from './ProjectCard';
+
+// Tech icons
+import reactLogo from '../assets/react.png';
+import jsLogo from '../assets/javascript.png';
+import nodeLogo from '../assets/node.png';
+import mongoLogo from '../assets/mongo.png';
+import expressLogo from '../assets/express.png';
+// import contextLogo from '../assets/context.png';
+
+// Videos
+import counterVideo from '../assets/counter-app-video.mp4';
+import todoVideo from '../assets/todo-app-video.mp4';
+// import chatVideo from '../assets/chat-demo.mp4'; // Optional
 
 const Projects = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
-    <Container sx={{ py: 10 }} id="projects" data-aos="fade-up">
-      <Typography variant="h4" color="primary" gutterBottom>Projects</Typography>
-      <Grid container spacing={4}>
-        {projects.map((project, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ background: '#1e293b' }}>
-              <CardContent>
-                <Typography variant="h6" color="primary">{project.title}</Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>{project.tech}</Typography>
-                <Button variant="outlined" color="primary" href={project.github} target="_blank">
-                  View Code
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+    <Container id="projects" sx={{ py: 10 }}>
+      <ProjectCard
+        title="Counter App"
+        description="A simple counter application built using <b>React.js</b> and <b>Context API</b>. Demonstrates <b>useReducer</b> and clean state handling."
+        features={[
+          '– Increment / Decrement functionality.',
+          '– Reset counter.',
+          '– Styled with <b>Material UI</b>.',
+        ]}
+        techIcons={[reactLogo, jsLogo,]}
+        sourceCode="https://github.com/punamrawat/counter-app"
+        media={counterVideo}
+        reverse={false}
+      />
+
+      <ProjectCard
+        title="ToDo App"
+        description="A full-stack ToDo app using <b>React.js</b>, <b>Node.js</b>, and <b>MongoDB</b>. Store and manage your tasks easily."
+        features={[
+          '– Add, edit, delete, complete tasks.',
+          '– REST API using <b>Express</b>.',
+          '– MongoDB for backend storage.',
+        ]}
+        techIcons={[reactLogo, nodeLogo, mongoLogo, expressLogo]}
+        sourceCode="https://github.com/punamrawat/todo-app"
+        media={todoVideo}
+        reverse={true}
+      />
+
+      <ProjectCard
+        title="Tic-Tac-Toe"
+        description="A simple, interactive Tic-Tac-Toe game built with HTML, CSS, and JavaScript, featuring:"
+        features={[
+          '– Two-Player Mode – Players take turns marking X and O on a 3x3 grid.',
+          '– Winning Detection – Automatically detects winning conditions and announces the winner.',
+          '– Draw Condition – Displays a draw message when the grid is full and no player wins.',
+        ]}
+        techIcons={[reactLogo, nodeLogo, mongoLogo]}
+        sourceCode="https://github.com/punamrawat/chat-app"
+        // media={chatVideo}
+        reverse={false}
+      />
     </Container>
   );
 };

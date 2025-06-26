@@ -1,17 +1,47 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Box, IconButton, Typography } from '@mui/material';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <Box sx={{ py: 4, textAlign: 'center', borderTop: '1px solid #334155', mt: 4 }}>
-      <Typography variant="body2" sx={{ color: '#94a3b8' }}>
-        © {new Date().getFullYear()} Punam Rawat • All Rights Reserved
+    <Box
+      component="footer"
+      sx={{
+        py: 3,
+        textAlign: 'center',
+        backgroundColor: 'background.paper',
+        borderTop: '1px solid #334155',
+        mt: 4,
+      }}
+    >
+      <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1 }}>
+        © {new Date().getFullYear()} Punam Rawat. All rights reserved.
       </Typography>
-      <Box sx={{ mt: 1, display: 'flex', justifyContent: 'center', gap: 2 }}>
-        <Link href="https://github.com/yourgithub" target="_blank"><FaGithub size={24} color="#38bdf8" /></Link>
-        <Link href="https://linkedin.com/in/yourlinkedin" target="_blank"><FaLinkedin size={24} color="#38bdf8" /></Link>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+        <IconButton
+          href="mailto:punamrawat1323@gmail.com"
+          sx={{ color: '#38bdf8' }}
+        >
+          <FaEnvelope />
+        </IconButton>
+
+        <IconButton
+          href="https://github.com/punamrawat"
+          target="_blank"
+          sx={{ color: '#38bdf8' }}
+        >
+          <FaGithub />
+        </IconButton>
+
+        <IconButton
+          href="https://linkedin.com/in/punamrawat"
+          target="_blank"
+          sx={{ color: '#38bdf8' }}
+        >
+          <FaLinkedin />
+        </IconButton>
       </Box>
     </Box>
   );
